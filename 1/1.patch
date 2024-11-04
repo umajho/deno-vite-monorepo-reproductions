@@ -1,0 +1,62 @@
+diff --git a/apps/web/package.json b/apps/web/package.json
+index d16fe38..4712521 100644
+--- a/apps/web/package.json
++++ b/apps/web/package.json
+@@ -10,6 +10,9 @@
+         "lint": "prettier --check . && eslint .",
+         "format": "prettier --write ."
+     },
++    "dependencies": {
++        "@deno/vite-plugin": "^1.0.0"
++    },
+     "devDependencies": {
+         "@fontsource/fira-mono": "^5.0.0",
+         "@neoconfetti/svelte": "^2.0.0",
+diff --git a/apps/web/vite.config.ts b/apps/web/vite.config.ts
+index 7f49f02..0fb0c9c 100644
+--- a/apps/web/vite.config.ts
++++ b/apps/web/vite.config.ts
+@@ -1,8 +1,9 @@
++import deno from "@deno/vite-plugin";
+ import { sveltekit } from '@sveltejs/kit/vite';
+ import { defineConfig } from 'vite';
+ 
+ export default defineConfig({
+-	plugins: [sveltekit()],
++	plugins: [deno(), sveltekit()],
+ 	server: {
+ 		fs: {
+ 			allow: ['../../']
+diff --git a/deno.lock b/deno.lock
+index 7c62da5..39322e9 100644
+--- a/deno.lock
++++ b/deno.lock
+@@ -1,6 +1,7 @@
+ {
+   "version": "4",
+   "specifiers": {
++    "npm:@deno/vite-plugin@1": "1.0.0_vite@5.4.8",
+     "npm:@fontsource/fira-mono@5": "5.1.0",
+     "npm:@neoconfetti/svelte@2": "2.2.1",
+     "npm:@sveltejs/adapter-auto@3": "3.2.5_@sveltejs+kit@2.6.3__@sveltejs+vite-plugin-svelte@4.0.0-next.7___svelte@5.0.0-next.262____acorn@8.12.1___vite@5.4.8__svelte@5.0.0-next.262___acorn@8.12.1__vite@5.4.8_@sveltejs+vite-plugin-svelte@4.0.0-next.7__svelte@5.0.0-next.262___acorn@8.12.1__vite@5.4.8_svelte@5.0.0-next.262__acorn@8.12.1_vite@5.4.8",
+@@ -46,6 +47,12 @@
+         "sisteransi"
+       ]
+     },
++    "@deno/vite-plugin@1.0.0_vite@5.4.8": {
++      "integrity": "sha512-Q9UeWqs3s7B5lqzu1Z5QrzYAzqTj3+F9YW17tWobGRbT2G40ihwis6zK/+QgMgcG4fm3IqdIfXmpQYhkZpdMfw==",
++      "dependencies": [
++        "vite"
++      ]
++    },
+     "@esbuild/aix-ppc64@0.21.5": {
+       "integrity": "sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ=="
+     },
+@@ -1241,6 +1248,7 @@
+         ],
+         "packageJson": {
+           "dependencies": [
++            "npm:@deno/vite-plugin@1",
+             "npm:@fontsource/fira-mono@5",
+             "npm:@neoconfetti/svelte@2",
+             "npm:@sveltejs/adapter-auto@3",

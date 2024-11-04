@@ -1,0 +1,3 @@
+[submodule "1/deno-monorepo-repro"]
+	path = 1/deno-monorepo-repro
+	url = https://github.com/cam-mcevenue/deno-monorepo-repro

@@ -1,0 +1,11 @@
+{
+  "workspace": ["./website", "./packages/counter"],
+  "compilerOptions": {
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "solid-js"
+  },
+  "imports": {
+    "solid-js": "npm:solid-js@^1.9.3"
+  }
+}
